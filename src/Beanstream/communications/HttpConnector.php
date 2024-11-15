@@ -37,7 +37,7 @@ class HttpConnector {
      */
 	public function processTransaction($http_method, $endpoint, $data) {
 		//call internal request function
-		return $this->request($http_method, $endpoint, $data);
+		return $this->request($endpoint, $http_method, $data);
 	}
 	
 	
@@ -53,7 +53,7 @@ class HttpConnector {
      * @throws ApiException
      * @throws ConnectorException
      */
-    private function request($http_method = NULL, $url, $data = NULL)
+    private function request($url, $http_method = NULL, $data = NULL)
     {
     	//check to see if we have curl installed on the server 
         if ( ! extension_loaded('curl')) {
